@@ -9,7 +9,10 @@ export default function Home() {
   const [ value, setValue ] = useState(5)
   return (
     <div className="h-96 flex items-center">
-      <Slider min={0} max={10} value={value} onChange={setValue}/>
+      <div className="w-4/5 mx-auto">
+        <Slider min={0} max={10} value={value} onChange={setValue}/>
+      </div>
+      <input type="range" />
        {/* <Slider
       defaultValue={[50]}
       max={100}

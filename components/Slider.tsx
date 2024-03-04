@@ -11,9 +11,10 @@ const Slider: React.FC<Props> = ({ min = 1, max = 10, value = 1, onChange }) => 
   const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (!onChange) return;
     const { value } = e.target;
-    onChange(+value);
+    return onChange(+value)
+    
   };
-
+  console.log(value)
   const ticks = Array.from({ length: max - min + 1 }, (_, index) => min + index);
 
   return (
@@ -25,11 +26,11 @@ const Slider: React.FC<Props> = ({ min = 1, max = 10, value = 1, onChange }) => 
         step={1}
         value={value}
         onChange={handleOnChange}
-        className="w-full"
+        className="appearance-none relative w-full bg-[#DBE4FF] h-1 z-10"
       />
-      <div className="absolute w-full top-0 flex justify-between items-center">
+      <div className="absolute w-full top-2 flex justify-between items-center ">
         {ticks.map((tick) => (
-          <span key={tick} className="w-px h-8 bg-black transform"></span>
+          <span key={tick} className="w-1 h-[1rem] bg-[#DBE4FF] transform"></span>
         ))}
       </div>
     </div>
