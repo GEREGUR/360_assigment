@@ -18,7 +18,6 @@ const Slider: React.FC<Props> = ({
     const { value } = e.target;
     return onChange(+value);
   };
-  console.log(value);
   const ticks = Array.from(
     { length: max - min + 1 },
     (_, index) => min + index,

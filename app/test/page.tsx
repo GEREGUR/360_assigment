@@ -29,16 +29,16 @@ const CARDS = [
 const TestPage = () => {
   const [value, setValue] = useState(5);
   return (
-    <div className="flex h-full flex-col items-center justify-center">
+    <div className="flex h-screen w-screen flex-col items-center justify-center">
       <div className="flex h-[50vh] items-center justify-center">
         <CardStack items={CARDS} />
       </div>
-      <div className="mt-10 flex w-[70vh] flex-col items-center justify-center space-y-10">
+      {/* <div className="mt-10 flex w-[70vh] flex-col items-center justify-center space-y-10">
         <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#DBE4FF]/60">
-          <div className="text-3xl text-[#1A3199]/80">{value}</div>
+          <div className="text-3xl text-[#1A3199]/60">{value}</div>
         </span>
         <Slider min={0} max={10} value={value} onChange={setValue} />
-      </div>
+      </div> */}
 
       {/* <div className="h-full border-t border-2">тут можно тестить свои компоненты, создавая для каждого компонента такой контейнер</div> */}
     </div>
