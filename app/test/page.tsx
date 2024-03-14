@@ -27,7 +27,6 @@ const CARDS = [
 ];
 
 const TestPage = () => {
-  const [value, setValue] = useState(5);
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
       <div className="flex h-[50vh] items-center justify-center">
