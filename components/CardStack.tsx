@@ -103,7 +103,7 @@ export const CardStack = ({ items }: { items: Card[] }) => {
         </button>
       </div> */}
       </div>
-      <div className="mt-10 flex w-[70vh] flex-col items-center justify-center space-y-10">
+      <div className="mt-14 flex w-[70vh] flex-col items-center justify-center space-y-10">
         <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#DBE4FF]/60">
           <div className="text-3xl text-[#1A3199]/60">{value}</div>
         </span>
