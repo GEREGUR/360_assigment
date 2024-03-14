@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from 'react';
+import React, { ChangeEventHandler } from "react";
 
 interface Props {
   min?: number;
@@ -7,15 +7,22 @@ interface Props {
   onChange?(value: number): void;
 }
 
-const Slider: React.FC<Props> = ({ min = 1, max = 10, value = 1, onChange }) => {
+const Slider: React.FC<Props> = ({
+  min = 1,
+  max = 10,
+  value = 1,
+  onChange,
+}) => {
   const handleOnChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (!onChange) return;
     const { value } = e.target;
-    return onChange(+value)
-    
+    return onChange(+value);
   };
-  console.log(value)
-  const ticks = Array.from({ length: max - min + 1 }, (_, index) => min + index);
+  console.log(value);
+  const ticks = Array.from(
+    { length: max - min + 1 },
+    (_, index) => min + index,
+  );
 
   return (
     <div className="relative w-full">
@@ -26,11 +33,14 @@ const Slider: React.FC<Props> = ({ min = 1, max = 10, value = 1, onChange }) => 
         step={1}
         value={value}
         onChange={handleOnChange}
-        className="appearance-none relative w-full bg-[#DBE4FF] h-1 z-10"
+        className="relative z-10 h-1 w-full appearance-none bg-[#DBE4FF] accent-[#1A3199]"
       />
-      <div className="absolute w-full top-2 flex justify-between items-center ">
+      <div className="absolute top-2 flex w-full items-center justify-between ">
         {ticks.map((tick) => (
-          <span key={tick} className="w-1 h-[1rem] bg-[#DBE4FF] transform"></span>
+          <span
+            key={tick}
+            className="h-[1rem] w-1 transform bg-[#DBE4FF]"
+          ></span>
         ))}
       </div>
     </div>
