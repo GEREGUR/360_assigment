@@ -48,11 +48,12 @@ export const CardStack = ({ items }: { items: Card[] }) => {
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
+      <div className="absolute top-0 my-10 h-2 w-[24em] rounded-full bg-[#DBE4FF] md:w-[56em]"></div>
       <button
         onClick={handlePrev}
-        className="my-10 flex h-12 w-16 items-center justify-center rounded-xl bg-[#1A3199] text-white"
+        className="my-10 flex h-12 w-20 items-center justify-center rounded-xl bg-[#1A3199] text-white"
       >
-        <GrLinkPrevious size={30} />
+        <GrLinkPrevious size={24} />
       </button>
       <div className="relative h-72 w-4/5 md:h-[380px] md:w-[700px]">
         <AnimatePresence initial={false} custom={questionNumber}>
@@ -104,9 +105,9 @@ export const CardStack = ({ items }: { items: Card[] }) => {
       </div> */}
       </div>
       <div className="mt-14 flex w-[70vh] flex-col items-center justify-center space-y-10">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#DBE4FF]/60">
+        {/* <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#DBE4FF]/60">
           <div className="text-3xl text-[#1A3199]/60">{value}</div>
-        </span>
+        </span> */}
         <Slider min={0} max={10} value={value} onChange={setValue} />
       </div>
       <button
