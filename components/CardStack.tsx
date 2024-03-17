@@ -15,23 +15,29 @@ export const CardStack = ({ items }: { items: Card[] }) => {
   const [cards, setCards] = useState<Card[]>(items);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [direction, setDirection] = useState("forward");
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
   const handleNext = () => {
     setDirection("forward");
-    setTimeout(
-      () => setQuestionNumber((prev) => Math.min(prev + 1, cards.length - 1)),
-      0,
-    );
+    setTimeout(() => {
+      // Store the selected value of the current question in the array
+      const selectedValue = String(value);
+      setSelectedValues((prevValues) => [...prevValues, selectedValue]);
+      setQuestionNumber((prev) => Math.min(prev + 1, cards.length - 1));
+    }, 0);
   };
 
   const handlePrev = () => {
     setDirection("back");
-    setTimeout(() => setQuestionNumber((prev) => Math.max(prev - 1, 0)), 0);
+    setTimeout(() => {
+      setQuestionNumber((prev) => Math.max(prev - 1, 0));
+      selectedValues.pop();
+    }, 0);
   };
 
-  const [value, setValue] = useState(5);
+  console.log(selectedValues);
 
-  console.log(questionNumber);
+  const [value, setValue] = useState(5);
 
   const variants = {
     initial: { opacity: 0, x: 20, y: -20 },
