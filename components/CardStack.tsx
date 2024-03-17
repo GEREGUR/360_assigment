@@ -31,6 +31,8 @@ export const CardStack = ({ items }: { items: Card[] }) => {
 
   const [value, setValue] = useState(5);
 
+  console.log(questionNumber);
+
   const variants = {
     initial: { opacity: 0, x: 20, y: -20 },
     animate: { opacity: 1, x: 0, y: 0 },
@@ -48,7 +50,17 @@ export const CardStack = ({ items }: { items: Card[] }) => {
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
-      <div className="absolute top-0 my-10 h-2 w-[24em] rounded-full bg-[#DBE4FF] md:w-[56em]"></div>
+      <div className="absolute top-0 my-10 h-2 w-[24em] rounded-full bg-[#DBE4FF] md:w-[56em]">
+        {" "}
+        {/* Progressive Bar */}
+        <div
+          className={`absolute left-0 z-10 h-2 rounded-full bg-[#1A3199] transition-all`}
+          style={{
+            width: `${(questionNumber + 1) * 25}%`,
+          }}
+        />
+      </div>
+
       <button
         onClick={handlePrev}
         className="my-10 flex h-12 w-20 items-center justify-center rounded-xl bg-[#1A3199] text-white"
@@ -104,7 +116,10 @@ export const CardStack = ({ items }: { items: Card[] }) => {
         </button>
       </div> */}
       </div>
-      <div className="mt-14 flex w-[70vh] flex-col items-center justify-center space-y-10">
+      <div className="mb-4 mt-10 flex h-10 w-10 items-center justify-center rounded-xl bg-[#DBE4FF]">
+        <span className="text-2xl text-[#1A3199]">{value}</span>
+      </div>
+      <div className="flex w-[70vh] flex-col items-center justify-center space-y-10">
         {/* <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#DBE4FF]/60">
           <div className="text-3xl text-[#1A3199]/60">{value}</div>
         </span> */}
@@ -114,7 +129,13 @@ export const CardStack = ({ items }: { items: Card[] }) => {
         onClick={handleNext}
         className="my-10 h-12 w-[70vh] rounded-xl bg-[#1A3199]"
       >
-        <span className="text-white">Следующий вопрос</span>
+        <span className="text-white">
+          {questionNumber === cards.length - 1 ? (
+            <p>Завершить</p>
+          ) : (
+            <p>Следующий вопрос</p>
+          )}
+        </span>
       </button>
     </div>
   );

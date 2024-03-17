@@ -23,6 +23,8 @@ const Slider: React.FC<Props> = ({
     (_, index) => min + index,
   );
 
+  const tickNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   return (
     <div className="relative w-full">
       <input
@@ -34,6 +36,16 @@ const Slider: React.FC<Props> = ({
         onChange={handleOnChange}
         className="relative z-10 h-1 w-full appearance-none bg-[#DBE4FF] accent-[#1A3199]"
       />
+      {/* <div className="absolute bottom-8 right-2 flex w-full flex-row items-center justify-between">
+        {tickNums.map((i) => (
+          <span
+            key={tickNums[i]}
+            className={`flex w-2 items-center justify-center text-sm`}
+          >
+            {i}
+          </span>
+        ))}
+      </div> */}
       <div className="absolute top-2 flex w-full items-center justify-between ">
         {ticks.map((tick) => (
           <span
