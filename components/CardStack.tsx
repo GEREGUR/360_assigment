@@ -22,7 +22,9 @@ export const CardStack = ({ items }: { items: Card[] }) => {
     setTimeout(() => {
       // Store the selected value of the current question in the array
       const selectedValue = String(value);
-      setSelectedValues((prevValues) => [...prevValues, selectedValue]);
+      cards.length === selectedValues.length
+        ? null
+        : setSelectedValues((prevValues) => [...prevValues, selectedValue]);
       setQuestionNumber((prev) => Math.min(prev + 1, cards.length - 1));
     }, 0);
   };
