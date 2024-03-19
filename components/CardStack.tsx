@@ -59,7 +59,6 @@ export const CardStack = ({ items }: { items: Card[] }) => {
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center">
       <div className="absolute top-0 my-10 h-2 w-[24em] rounded-full bg-[#DBE4FF] md:w-[56em]">
-        {" "}
         {/* Progressive Bar */}
         <div
           className={`absolute left-0 z-10 h-2 rounded-full bg-[#1A3199] transition-all`}
