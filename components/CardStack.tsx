@@ -108,28 +108,11 @@ export const CardStack = ({ items }: { items: Card[] }) => {
             />
           )}
         </AnimatePresence>
-        {/* <div className="flex justify-center gap-x-4 pt-80">
-        <button
-          onClick={handlePrev}
-          className={cn(
-            "rounded-xl border px-4 py-2",
-            questionNumber === 0 && "cursor-default opacity-50",
-          )}
-        >
-          prev
-        </button>
-        <button onClick={handleNext} className="rounded-xl border px-4 py-2">
-          next
-        </button>
-      </div> */}
       </div>
       <div className="mb-4 mt-10 flex h-10 w-10 items-center justify-center rounded-xl bg-[#DBE4FF]">
         <span className="text-2xl text-[#1A3199]">{value}</span>
       </div>
       <div className="flex w-[70vh] flex-col items-center justify-center space-y-10">
-        {/* <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#DBE4FF]/60">
-          <div className="text-3xl text-[#1A3199]/60">{value}</div>
-        </span> */}
         <Slider min={0} max={10} value={value} onChange={setValue} />
       </div>
       <button
